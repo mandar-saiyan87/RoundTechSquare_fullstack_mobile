@@ -3,6 +3,8 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import connectDB from './src/config/db.js'
 import dns from 'dns'
+import rootrouter from './src/routes/index.js'
+
 
 /* Set custom DNS servers to avoid potential DNS resolution issues (),Using public DNS servers like Google's 
 can help resolve MongoDB Atlas connection issues on Windows after switching Node.js versions.
@@ -28,6 +30,8 @@ const port = process.env.PORT || 5000
 app.get('/status', (req, res) => {
     res.status(200).json({ status: 'Server is running' })
 });
+
+app.use('/api', rootrouter)
 
 
 app.listen(port, () => {
