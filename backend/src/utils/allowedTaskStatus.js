@@ -1,0 +1,1 @@
+export const allowedTaskStatuses = ['pending', 'in-progress', 'completed']
